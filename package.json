@@ -8,8 +8,17 @@
     "start": "next start"
   },
   "dependencies": {
+    "@chakra-ui/react": "^1.6.1",
+    "@emotion/react": "^11.4.0",
+    "@emotion/styled": "^11.3.0",
+    "contentful": "^8.3.5",
+    "framer-motion": "^4.1.16",
+    "gsap": "^3.6.1",
     "next": "10.2.0",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-query": "^3.16.0",
+    "sass": "^1.32.13",
+    "zustand": "^3.5.1"
   }
 }
