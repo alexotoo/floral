@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Charm&family=Roboto&display=swap");
+
+html,
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+h2,
+h1 {
+  font-family: "Charm", cursive;
+}
+.cardImage {
+  backface-visibility: hidden;
+  transition: ease 0.5s;
+}
+.cardImage:hover {
+  transform: scale(1.03);
+}
+
+.hero {
+  background: url(/image/hero-1.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}

@@ -13,9 +13,10 @@ this is e-commerce website built for (imaginary) grandma 👵🏾 to sell her ca
 
 ## majors tools used
 
-Next js [Next.js](https://nextjs.org/)
-Chakara UI [chakra-UI](https://chakra-ui.com/)
-firebase [firebase](https://firebase.google.com/)
-React Query [reactQuery](https://react-query.tanstack.com/)
-Zustand [zustand](https://github.com/pmndrs/zustand)
-Greensocks [Greensocks](https://greensock.com/react/)
+1. [Next.js](https://nextjs.org/)
+2. [chakra-UI](https://chakra-ui.com/)
+3. [firebase](https://firebase.google.com/)
+4. [reactQuery](https://react-query.tanstack.com/)
+5. [zustand](https://github.com/pmndrs/zustand)
+6. [Greensocks](https://greensock.com/react/)
+7. [Contentful](https://app.contentful.com/)
