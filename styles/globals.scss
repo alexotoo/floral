@@ -23,3 +23,47 @@ h1 {
   background-repeat: no-repeat;
   background-position: center;
 }
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.781);
+  z-index: 80;
+}
+.cartModel {
+  animation: slideIn 700ms ease-out forwards;
+}
+.cartModuleOut {
+  animation: slideOut 5s ease-out forwards;
+}
+
+// aminations
+@keyframes slideIn {
+  0% {
+    transform: translateY(-200rem);
+    width: 0;
+  }
+  80% {
+    width: 63%;
+  }
+  100% {
+    width: 60%;
+  }
+}
+@keyframes slideOut {
+  0% {
+    width: 60%;
+  }
+
+  7% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-100rem);
+  }
+}

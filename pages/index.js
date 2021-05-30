@@ -5,6 +5,7 @@ import { useState } from "react";
 import ProductList from "../components/productList/ProductList";
 import Sections from "../components/Sections";
 import HeroSection from "../components/HeroSection";
+import CartDrawer from "../components/CartDrawer";
 
 export default function Home({ retriveProducts }) {
   const [products, setproducts] = useState(retriveProducts);
@@ -17,6 +18,7 @@ export default function Home({ retriveProducts }) {
         {/* <link rel="icon" href="/favicon.ico" /> */}
       </Head>
       <main>
+        <CartDrawer />
         <HeroSection />
 
         {products && (

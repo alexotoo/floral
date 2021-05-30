@@ -12,10 +12,13 @@ import {
 
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import NavDrawer from "./NavDrawer";
-
 import UserLogInLogOut from "./UserLogInLogOut";
+import { useCartStore } from "../store/cartStore";
 
 export default function Navbar() {
+  const cartItems = useCartStore((state) => state.cartItems);
+  const cartToggleHandler = useCartStore((state) => state.cartToggler);
+
   return (
     <Flex color="white" w="100%" bg="black" h="70px" px="2rem" boxShadow="base">
       <HStack>
@@ -37,9 +40,9 @@ export default function Navbar() {
         </Center>
         <Spacer />
         <Center>
-          <VStack lineHeight=".25">
-            <Text>50</Text>
-            <AiOutlineShoppingCart size="1.5rem" />
+          <VStack lineHeight=".25" _hover={{ cursor: "pointer" }}>
+            <Text>{cartItems.length}</Text>
+            <AiOutlineShoppingCart size="1.5rem" onClick={cartToggleHandler} />
           </VStack>{" "}
         </Center>
       </HStack>

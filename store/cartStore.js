@@ -1,15 +1,18 @@
 import create from "zustand";
 
 const useCartStore = create((set) => ({
-  cartCount: 0,
   isInCart: false,
+  isCartOpen: false,
   cartItems: [],
-  addToCart: (id, image, price, title) => {
-    const cartItem = { id, image, price, title };
-
-    set((state) => ({ cartItems: [...state.cartItems, cartItem] }));
-  },
-  removeAllBears: () => set({ bears: 0 }),
+  getInitialCartItems: (initialCartItems) =>
+    set((state) => ({
+      cartItems: [...initialCartItems],
+    })),
+  addToCart: (cartItem) =>
+    set((state) => ({
+      cartItems: [...state.cartItems, cartItem],
+    })),
+  cartToggler: () => set((state) => ({ isCartOpen: !state.isCartOpen })),
 }));
 
 export { useCartStore };

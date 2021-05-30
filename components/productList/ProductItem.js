@@ -1,13 +1,14 @@
-import { Badge } from "@chakra-ui/layout";
-import { Text } from "@chakra-ui/layout";
-import { HStack } from "@chakra-ui/layout";
-import { Box } from "@chakra-ui/layout";
+import {
+  Text,
+  Badge,
+  Box,
+  VStack,
+  Flex,
+  Spacer,
+  Center,
+} from "@chakra-ui/layout";
 import { Image } from "@chakra-ui/image";
-import { VStack } from "@chakra-ui/layout";
-import { Flex } from "@chakra-ui/layout";
 import { AiOutlineShoppingCart } from "react-icons/ai";
-import { Spacer } from "@chakra-ui/layout";
-import { Center } from "@chakra-ui/layout";
 import { Button } from "@chakra-ui/button";
 import { useCartStore } from "../../store/cartStore";
 import { useCallback, useState } from "react";
@@ -16,14 +17,45 @@ function ProductItem({ product }) {
   const [isInCart, setIsInCart] = useState(false);
   const { description, isInStock, price, title, image, type, id } = product;
 
+  const cartToggleHandler = useCartStore((state) => state.cartToggler);
+
   // const cartCount = useCartStore((state) => state.cartCount);
   const cartItems = useCartStore(useCallback((state) => state.cartItems));
   const addToCart = useCartStore((state) => state.addToCart);
 
-  const checkIsInCart = (idd) =>
-    cartItems.filter((item) => item.id !== id).map((item) => item.id);
+  console.log(cartItems);
+  const updateCart = (item) => [...cartItems, item];
 
-  // console.log(cartItems);
+  const addToCartHandler = (cartitem) => {
+    console.log(cartItems);
+    if (!cartItems.length) {
+      setIsInCart(true);
+      addToCart(cartitem);
+      localStorage.setItem(
+        "grandmaCartItems",
+        JSON.stringify(updateCart(cartitem))
+      );
+      console.log(cartItems);
+      console.log("item added to cart 1");
+      setIsInCart(false);
+    } else if (cartItems.length > 0) {
+      const checkItemIsInCart = cartItems.find((item) => item.id === id);
+      if (checkItemIsInCart === undefined) {
+        addToCart(cartitem);
+        localStorage.setItem(
+          "grandmaCartItems",
+          JSON.stringify(updateCart(cartitem))
+        );
+        console.log("item added to cart 2");
+        console.log(cartItems);
+      } else {
+        console.log("item in cart already 1");
+      }
+    } else {
+      console.log("item in cart already 2");
+    }
+    cartToggleHandler();
+  };
 
   return (
     <Box maxW="sm" overflow="hidden" className="box-1" color="black" mb="2rem">
@@ -53,9 +85,10 @@ function ProductItem({ product }) {
           </Badge>
           <Spacer />
           <Center fontSize="30px" _hover={{ cursor: "pointer" }}>
-            {console.log(checkIsInCart().includes(id))}
             <AiOutlineShoppingCart
-              onClick={() => addToCart(id, image, price, title)}
+              onClick={() =>
+                addToCartHandler({ id, image, price, title, qty: 1 })
+              }
             />
           </Center>
         </Flex>
