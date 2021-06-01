@@ -21,11 +21,13 @@ const CartDrawer = () => {
   const cartItems = useCartStore((state) => state.cartItems);
   const isCartOpen = useCartStore((state) => state.isCartOpen);
   const cartToggleHandler = useCartStore((state) => state.cartToggler);
+
   const getInitialCartItems = useCartStore(
     (state) => state.getInitialCartItems
   );
+  const removeItemFromCart = useCartStore((state) => state.removeItemFromCart);
+  const updateQty = useCartStore((state) => state.updateQty);
 
-  console.log(cartItems);
   const length = cartItems.length;
 
   useEffect(() => {
@@ -34,13 +36,6 @@ const CartDrawer = () => {
       : [];
     getInitialCartItems(initialCartItems);
   }, [length]);
-
-  //   useEffect(() => {
-  //     const addToLocal = () => {
-  //       localStorage.setItem("grandmaCartItems", JSON.stringify(cartItems));
-  //     };
-  //     addToLocal();
-  //   }, []);
 
   return (
     <>
@@ -67,10 +62,15 @@ const CartDrawer = () => {
               <Text>Your Cart is Empty</Text>
             </Center>
           ) : (
-            <HStack>
+            <HStack fontWeight="bold">
               <Text>{cartItems.length} Product(s)</Text>
               <Spacer />
-              <Text>Subtotal: ${}</Text>
+              <Text>
+                Subtotal: ${" "}
+                {cartItems
+                  .reduce((acc, item) => acc + item.price * item.qty, 0)
+                  .toFixed(2)}
+              </Text>
             </HStack>
           )}
         </Box>
@@ -126,15 +126,26 @@ const CartDrawer = () => {
                       <Text fontWeight="bold">{item.title}</Text>
                       <Box>
                         <HStack>
-                          <Button isDisabled={0}>-</Button>
+                          <Button
+                            isDisabled={item.qty <= 1}
+                            onClick={() => updateQty(item.id, "dec")}
+                          >
+                            -
+                          </Button>
                           <Text>{item.qty}</Text>
-                          <Button>+</Button>
+                          <Button onClick={() => updateQty(item.id, "inc")}>
+                            +
+                          </Button>
                         </HStack>
                       </Box>
                     </VStack>
                     <VStack>
-                      <Button>x</Button>
-                      <Text fontWeight="bold">$200.00</Text>
+                      <Button onClick={() => removeItemFromCart(item.id)}>
+                        x
+                      </Button>
+                      <Text fontWeight="bold">
+                        ${(item.price * item.qty).toFixed(2)}
+                      </Text>
                     </VStack>
                   </HStack>
                 </ListItem>
