@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import {
   Text,
   Badge,
@@ -15,10 +16,16 @@ import { useCartStore } from "../../store/cartStore";
 function ProductItem({ product }) {
   const { description, isInStock, price, title, image, type, id } = product;
   const addToCart = useCartStore((state) => state.addToCart);
+  const router = useRouter();
 
   return (
     <Box maxW="sm" overflow="hidden" className="box-1" color="black" mb="2rem">
-      <Box height="350px" cursor="pointer" overflow="hidden">
+      <Box
+        height="350px"
+        cursor="pointer"
+        overflow="hidden"
+        onClick={() => router.push(`/${id}`)}
+      >
         <Image src={image} width="100%" className="cardImage" height="100%" />
       </Box>
 

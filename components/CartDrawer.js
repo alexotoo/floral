@@ -11,7 +11,7 @@ import {
   Flex,
   Box,
 } from "@chakra-ui/layout";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import { FaChevronUp } from "react-icons/fa";
 import { useCartStore } from "../store/cartStore";
@@ -47,9 +47,15 @@ const CartDrawer = () => {
         zIndex="99"
         right="0"
         top="0"
-        className={isCartOpen ? "cartModel" : "cartModuleOut"}
+        className={isCartOpen ? "cartModel" : "cartBox "}
       >
-        <HStack bg="black" width="100%" color="white" h="70px" px="2rem">
+        <HStack
+          bg="blackAlpha.700"
+          width="100%"
+          color="white"
+          h="100px"
+          px="2rem"
+        >
           <Text _hover={{ cursor: "pointer" }}>
             <FaChevronUp onClick={cartToggleHandler} />
           </Text>
@@ -83,29 +89,55 @@ const CartDrawer = () => {
           height="130px"
           px="1rem"
         >
-          <Flex
-            flexDirection={{ base: "column", md: "row" }}
-            justifyContent="space-between"
-            color="white"
-          >
-            <Button
-              borderRadius="none"
-              marginBottom="1rem"
-              width={{ md: "200px" }}
-              bg="gray.600"
-              _hover={{ bg: "gray.500" }}
+          {cartItems.length ? (
+            <Flex
+              flexDirection={{ base: "column", md: "row" }}
+              justifyContent="space-between"
+              color="white"
             >
-              Continue shopping
-            </Button>
-            <Button
-              borderRadius="none"
-              width={{ md: "200px" }}
-              bg="orange.400"
-              _hover={{ bg: "orange.300" }}
+              <Button
+                borderRadius="none"
+                marginBottom="1rem"
+                width={{ md: "200px" }}
+                bg="gray.600"
+                _hover={{ bg: "gray.500" }}
+              >
+                Continue shopping
+              </Button>
+              <Button
+                borderRadius="none"
+                width={{ md: "200px" }}
+                bg="orange.400"
+                _hover={{ bg: "orange.300" }}
+              >
+                Checkout
+              </Button>
+            </Flex>
+          ) : (
+            <Flex
+              flexDirection={{ base: "column", md: "row" }}
+              justifyContent="space-between"
+              color="white"
             >
-              Checkout
-            </Button>
-          </Flex>
+              <Button
+                borderRadius="none"
+                marginBottom="1rem"
+                width={{ md: "200px" }}
+                bg="gray.600"
+                _hover={{ bg: "gray.500" }}
+              >
+                Sign In
+              </Button>
+              <Button
+                borderRadius="none"
+                width={{ md: "200px" }}
+                bg="orange.400"
+                _hover={{ bg: "orange.300" }}
+              >
+                Start Shopping
+              </Button>
+            </Flex>
+          )}
         </Box>
 
         {cartItems && (
@@ -120,7 +152,7 @@ const CartDrawer = () => {
                   cartitem={item}
                 >
                   {" "}
-                  <HStack marginBottom="1rem">
+                  <HStack marginBottom="1rem" color="black">
                     <Image src={item.image} width="20%" />
                     <VStack minW="50%">
                       <Text fontWeight="bold">{item.title}</Text>

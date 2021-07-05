@@ -43,14 +43,16 @@ export default function NavDrawer() {
         <DrawerOverlay>
           <DrawerContent>
             <DrawerCloseButton />
-
-            <DrawerBody>
-              <Center>
-                <Text className="logo" textDecoration="none" color="green.500">
-                  Eatify
+            <DrawerHeader bg="black">
+              {" "}
+              <Center h="38px">
+                <Text as="h2" color="gold" fontSize="large" fontWeight="bolder">
+                  Grandma's SHop
                 </Text>
               </Center>
-            </DrawerBody>
+            </DrawerHeader>
+
+            <DrawerBody></DrawerBody>
             <DrawerFooter>
               <HStack paddingRight="4rem">
                 <Text color="gray.400" fontWeight="bolder">

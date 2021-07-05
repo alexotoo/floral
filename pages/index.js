@@ -1,14 +1,19 @@
-import { Container } from "@chakra-ui/layout";
 import Head from "next/head";
 import { createClient } from "contentful";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ProductList from "../components/productList/ProductList";
 import Sections from "../components/Sections";
 import HeroSection from "../components/HeroSection";
-import CartDrawer from "../components/CartDrawer";
+import { useProductsStore } from "../store/productsStore";
 
 export default function Home({ retriveProducts }) {
   const [products, setproducts] = useState(retriveProducts);
+
+  const getProducts = useProductsStore((state) => state.getProducts);
+
+  useEffect(() => {
+    getProducts(products);
+  }, [products]);
 
   return (
     <div>
@@ -18,7 +23,6 @@ export default function Home({ retriveProducts }) {
         {/* <link rel="icon" href="/favicon.ico" /> */}
       </Head>
       <main>
-        <CartDrawer />
         <HeroSection />
 
         {products && (

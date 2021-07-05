@@ -30,14 +30,17 @@ h1 {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.781);
+  background-color: rgba(0, 0, 0, 0.459);
   z-index: 80;
 }
+
+.cartBox {
+  transform: translateY(-200rem);
+  transition: 2s ease;
+}
+
 .cartModel {
   animation: slideIn 700ms ease-out forwards;
-}
-.cartModuleOut {
-  animation: slideOut 5s ease-out forwards;
 }
 
 // aminations
@@ -51,19 +54,5 @@ h1 {
   }
   100% {
     width: 60%;
-  }
-}
-@keyframes slideOut {
-  0% {
-    width: 60%;
-  }
-
-  7% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 0;
-    transform: translateY(-100rem);
   }
 }
