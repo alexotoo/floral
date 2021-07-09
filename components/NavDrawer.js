@@ -15,7 +15,7 @@ import {
   Link,
   Text,
 } from "@chakra-ui/react";
-import { Flex, Circle, HStack, Spacer } from "@chakra-ui/layout";
+import { Circle, HStack } from "@chakra-ui/layout";
 import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
 
 export default function NavDrawer() {
