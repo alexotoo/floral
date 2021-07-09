@@ -4,16 +4,21 @@ import { Button } from "@chakra-ui/button";
 import { Image } from "@chakra-ui/image";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import { Spinner } from "@chakra-ui/react";
+import Link from "next/link";
+
+import { useCartStore } from "../store/cartStore";
 
 export default function productdetails() {
   const { query, push } = useRouter();
   let id = query.productdetails;
   const [product, setproduct] = useState(null);
 
+  const addToCart = useCartStore((state) => state.addToCart);
+
   useEffect(() => {
     async function getSingledata() {
       try {
-        console.log(id);
         const client = createClient({
           space: process.env.NEXT_PUBLIC_DATA_SPACE,
           accessToken: process.env.NEXT_PUBLIC_DATA_KEY,
@@ -31,13 +36,16 @@ export default function productdetails() {
     getSingledata();
   }, []);
 
-  console.log(id);
-  console.log(product);
-
   return (
-    <>
+    <Container maxW="container.xl" minH="100vh">
       {!product ? (
-        <h1>loading</h1>
+        <Spinner
+          thickness="4px"
+          speed="0.65s"
+          emptyColor="gray.200"
+          color="gold"
+          size="xl"
+        />
       ) : (
         <Container maxW="container.xl">
           <Center my="2rem">
@@ -58,7 +66,20 @@ export default function productdetails() {
                 <Text>{product.fields.isInStock}</Text>
               </HStack>
               <Box w="100%" py="1rem">
-                <Button bg="orange.400" w="50%">
+                <Button
+                  bg="orange.400"
+                  _hover={{ bg: "orange.500" }}
+                  w="50%"
+                  onClick={() =>
+                    addToCart({
+                      id,
+                      image: product.fields.image.fields.file.url,
+                      price: product.fields.price,
+                      title: product.fields.title,
+                      qty: 1,
+                    })
+                  }
+                >
                   {" "}
                   Add To Cart
                 </Button>
@@ -66,11 +87,22 @@ export default function productdetails() {
               <Box mt="1rem" minh="50vh" fontSize="1.5rem">
                 <Text fontWeight="bold">Product Details:</Text>
                 <Text> {product.fields.description}</Text>
+                <Link href="/">
+                  <Button
+                    mt="2rem"
+                    marginBottom="1rem"
+                    w="50%"
+                    bg="gray.500"
+                    _hover={{ bg: "gray.600" }}
+                  >
+                    Back
+                  </Button>
+                </Link>
               </Box>
             </Box>
           </Flex>
         </Container>
       )}
-    </>
+    </Container>
   );
 }

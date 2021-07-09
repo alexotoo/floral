@@ -15,6 +15,7 @@ export default function Footer() {
       bg=" #001"
       color="white"
       overflow="hidden"
+      mt="2rem"
     >
       <Flex
         justifyContent="space-between"

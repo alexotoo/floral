@@ -13,14 +13,10 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { Button } from "@chakra-ui/button";
 import { useCartStore } from "../../store/cartStore";
 
-import { useProductsStore } from "../../store/productsStore";
-
 function ProductItem({ product }) {
   const { description, isInStock, price, title, image, type, id } = product;
   const addToCart = useCartStore((state) => state.addToCart);
-  const getProductDetails = useProductsStore(
-    (state) => state.getProductDetails
-  );
+
   const router = useRouter();
 
   const saveAndRedirect = () => {
