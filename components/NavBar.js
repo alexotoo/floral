@@ -21,7 +21,7 @@ export default function Navbar() {
   const cartToggleHandler = useCartStore((state) => state.cartToggler);
 
   return (
-    <Flex color="white" w="100%" bg="black" h="70px" px="2rem" boxShadow="base">
+    <Flex color="white" w="100%" bg=" #001" h="70px" px="2rem" boxShadow="base">
       <CartDrawer />
       <HStack>
         <Center>

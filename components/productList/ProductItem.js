@@ -13,10 +13,21 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { Button } from "@chakra-ui/button";
 import { useCartStore } from "../../store/cartStore";
 
+import { useProductsStore } from "../../store/productsStore";
+
 function ProductItem({ product }) {
   const { description, isInStock, price, title, image, type, id } = product;
   const addToCart = useCartStore((state) => state.addToCart);
+  const getProductDetails = useProductsStore(
+    (state) => state.getProductDetails
+  );
   const router = useRouter();
+
+  const saveAndRedirect = () => {
+    // localStorage.setItem("grandmaProductDetails", JSON.stringify([product]));
+    // getProductDetails();
+    router.push(`/${id}`);
+  };
 
   return (
     <Box maxW="sm" overflow="hidden" className="box-1" color="black" mb="2rem">
@@ -24,7 +35,7 @@ function ProductItem({ product }) {
         height="350px"
         cursor="pointer"
         overflow="hidden"
-        onClick={() => router.push(`/${id}`)}
+        onClick={saveAndRedirect}
       >
         <Image src={image} width="100%" className="cardImage" height="100%" />
       </Box>

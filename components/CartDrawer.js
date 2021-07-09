@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Button } from "@chakra-ui/button";
 import { Image } from "@chakra-ui/image";
 import { Center } from "@chakra-ui/layout";
@@ -11,6 +12,7 @@ import {
   Flex,
   Box,
 } from "@chakra-ui/layout";
+
 import { useEffect, useState } from "react";
 
 import { FaChevronUp } from "react-icons/fa";
@@ -49,13 +51,7 @@ const CartDrawer = () => {
         top="0"
         className={isCartOpen ? "cartModel" : "cartBox "}
       >
-        <HStack
-          bg="blackAlpha.700"
-          width="100%"
-          color="white"
-          h="100px"
-          px="2rem"
-        >
+        <HStack bg=" #001" width="100%" color="white" h="100px" px="2rem">
           <Text _hover={{ cursor: "pointer" }}>
             <FaChevronUp onClick={cartToggleHandler} />
           </Text>
@@ -95,15 +91,18 @@ const CartDrawer = () => {
               justifyContent="space-between"
               color="white"
             >
-              <Button
-                borderRadius="none"
-                marginBottom="1rem"
-                width={{ md: "200px" }}
-                bg="gray.600"
-                _hover={{ bg: "gray.500" }}
-              >
-                Continue shopping
-              </Button>
+              <Link href="/">
+                <Button
+                  onClick={cartToggleHandler}
+                  borderRadius="none"
+                  marginBottom="1rem"
+                  width={{ md: "200px" }}
+                  bg="gray.600"
+                  _hover={{ bg: "gray.500" }}
+                >
+                  Continue shopping
+                </Button>
+              </Link>
               <Button
                 borderRadius="none"
                 width={{ md: "200px" }}
@@ -128,14 +127,17 @@ const CartDrawer = () => {
               >
                 Sign In
               </Button>
-              <Button
-                borderRadius="none"
-                width={{ md: "200px" }}
-                bg="orange.400"
-                _hover={{ bg: "orange.300" }}
-              >
-                Start Shopping
-              </Button>
+              <Link href="/">
+                <Button
+                  onClick={cartToggleHandler}
+                  borderRadius="none"
+                  width={{ md: "200px" }}
+                  bg="orange.400"
+                  _hover={{ bg: "orange.300" }}
+                >
+                  Start Shopping
+                </Button>
+              </Link>
             </Flex>
           )}
         </Box>

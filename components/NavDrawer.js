@@ -43,7 +43,7 @@ export default function NavDrawer() {
         <DrawerOverlay>
           <DrawerContent>
             <DrawerCloseButton />
-            <DrawerHeader bg="black">
+            <DrawerHeader bg=" #001">
               {" "}
               <Center h="38px">
                 <Text as="h2" color="gold" fontSize="large" fontWeight="bolder">
@@ -53,16 +53,16 @@ export default function NavDrawer() {
             </DrawerHeader>
 
             <DrawerBody></DrawerBody>
-            <DrawerFooter>
+            <DrawerFooter bg=" #001">
               <HStack paddingRight="4rem">
-                <Text color="gray.400" fontWeight="bolder">
+                <Text color="white" fontWeight="bolder">
                   Follow
                 </Text>
                 <Circle
                   size="30px"
                   color="white"
-                  bg="green.500"
-                  _hover={{ bg: "green.600" }}
+                  bg="yellow.400"
+                  _hover={{ bg: "gold" }}
                 >
                   <a href="#">
                     {" "}
@@ -72,8 +72,8 @@ export default function NavDrawer() {
                 <Circle
                   size="30px"
                   color="white"
-                  bg="green.500"
-                  _hover={{ bg: "green.600" }}
+                  bg="yellow.400"
+                  _hover={{ bg: "gold" }}
                 >
                   <a href="#">
                     <FaInstagram />
@@ -82,8 +82,8 @@ export default function NavDrawer() {
                 <Circle
                   size="30px"
                   color="white"
-                  bg="green.500"
-                  _hover={{ bg: "green.600" }}
+                  bg="yellow.400"
+                  _hover={{ bg: "gold" }}
                 >
                   <a href="#">
                     <FaTwitter />
