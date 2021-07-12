@@ -53,6 +53,22 @@ h1 {
     width: 63%;
   }
   100% {
-    width: 80%;
+    width: 60%;
+  }
+}
+
+@media only screen and (max-device-width: 812px) {
+  // aminations
+  @keyframes slideIn {
+    0% {
+      transform: translateY(-200rem);
+      width: 0;
+    }
+    80% {
+      width: 63%;
+    }
+    100% {
+      width: 80%;
+    }
   }
 }
