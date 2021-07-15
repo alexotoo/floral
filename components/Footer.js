@@ -1,4 +1,5 @@
 import { Container, Flex, HStack, Link, Text } from "@chakra-ui/layout";
+import { Image } from "@chakra-ui/image";
 import {
   AiFillSlackCircle,
   AiFillTwitterCircle,
@@ -89,7 +90,9 @@ export default function Footer() {
       >
         <Text>Privacy & Policy</Text>
 
-        <Text>Developed by AlexOoo</Text>
+        <Text>
+          Developed by <Image src="/image/alexooodev.png" width="150px" />
+        </Text>
         <Text> right reserved {today.getFullYear()}</Text>
       </Flex>
     </Container>
