@@ -27,10 +27,10 @@ export default function Home({ retriveProducts }) {
 
         {products && (
           <div>
-            <Sections section="Flowers" bg="pink.100">
+            <Sections section="Flowers" bg="#E0E0EB">
               <ProductList products={products} type={"flower"} />
             </Sections>
-            <Sections section="cakes" bg="yellow.100">
+            <Sections section="cakes" bg="#CCD7DA">
               <ProductList products={products} type={"cake"} />
             </Sections>
           </div>

@@ -17,11 +17,42 @@ h1 {
   transform: scale(1.03);
 }
 
-.hero {
-  background: url(/image/hero-1.jpg);
+.hero-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100% !important;
+}
+.hero-btn {
+  width: 250px !important;
+  font-size: 2rem !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  font-family: "Charm", cursive;
+  background-color: rgba(10, 10, 10, 0.568) !important;
+  color: aliceblue !important;
+  transition: ease 500ms !important;
+  height: 3rem !important;
+}
+.hero-btn:hover {
+  background-color: #000000 !important;
+}
+
+.cakes {
+  background: url(/image/cake-5.jpeg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  width: 50%;
+  height: 100%;
+}
+.flowers {
+  background: url(/image/flower-7.jpeg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 50%;
+  height: 100%;
 }
 
 .overlay {
