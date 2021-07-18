@@ -5,14 +5,16 @@ import ProductList from "../components/productList/ProductList";
 import Sections from "../components/Sections";
 import HeroSection from "../components/HeroSection";
 import { useProductsStore } from "../store/productsStore";
+import { Box, Text } from "@chakra-ui/react";
+import { Image, Container } from "@chakra-ui/react";
 
 export default function Home({ retriveProducts }) {
   const [products, setproducts] = useState(retriveProducts);
 
   const getProducts = useProductsStore((state) => state.getProducts);
 
-  const sectionRefFlower = useRef();
   const sectionRefCake = useRef();
+  const sectionRefFlower = useRef();
 
   useEffect(() => {
     getProducts(products);
@@ -35,6 +37,33 @@ export default function Home({ retriveProducts }) {
         {/* <link rel="icon" href="/favicon.ico" /> */}
       </Head>
       <main>
+        <Container maxW="container.lg" mt="4rem" position="relative">
+          <Image width="100%" src="/image/madeaPhoto.jpeg" />
+          <Box
+            position="absolute"
+            bottom="30px"
+            color="whiteAlpha.900"
+            width="80%"
+            height="150px"
+            backgroundColor="blackAlpha.600"
+            fontWeight="bolder"
+          >
+            <Text as="h2" fontSize="2rem" textAlign="center">
+              Grandma welcomes you
+            </Text>
+            <Text
+              as="h2"
+              textAlign="center"
+              px="1rem"
+              fontWeight="light"
+              fontSize="1.2rem"
+            >
+              At my shop you just feel like home. I serve you with home grown
+              flowers and that special cake you have always wanted for that
+              special day
+            </Text>
+          </Box>
+        </Container>
         <HeroSection
           handleScrollCakesToView={handleScrollCakesToView}
           handleScrollFlowersToView={handleScrollFlowersToView}

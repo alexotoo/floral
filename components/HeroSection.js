@@ -4,7 +4,6 @@ import { Container } from "@chakra-ui/layout";
 import { Text } from "@chakra-ui/layout";
 import { Box } from "@chakra-ui/layout";
 import { Flex } from "@chakra-ui/layout";
-import Link from "next/link";
 
 const HeroSection = ({
   handleScrollFlowersToView,
@@ -27,16 +26,14 @@ const HeroSection = ({
         </Button>
       </Box>
       <Box className="flowers hero-box btn-flower">
-        <Link href="">
-          <Button
-            variant="outline"
-            borderRadius="0"
-            className="hero-btn"
-            onClick={handleScrollFlowersToView}
-          >
-            Shop Flowers
-          </Button>
-        </Link>
+        <Button
+          variant="outline"
+          borderRadius="0"
+          className="hero-btn"
+          onClick={handleScrollFlowersToView}
+        >
+          Shop Flowers
+        </Button>
       </Box>
     </Flex>
   );
