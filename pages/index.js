@@ -37,7 +37,7 @@ export default function Home({ retriveProducts }) {
         {/* <link rel="icon" href="/favicon.ico" /> */}
       </Head>
       <main>
-        <Container maxW="container.lg" mt="4rem" position="relative">
+        <Container maxW="container.lg" position="relative">
           <Image width="100%" src="/image/madeaPhoto.jpeg" />
           <Box
             position="absolute"
