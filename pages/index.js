@@ -5,7 +5,7 @@ import ProductList from "../components/productList/ProductList";
 import Sections from "../components/Sections";
 import HeroSection from "../components/HeroSection";
 import { useProductsStore } from "../store/productsStore";
-import { Box, Text } from "@chakra-ui/react";
+import { Box, Center, Text } from "@chakra-ui/react";
 import { Image, Container } from "@chakra-ui/react";
 
 export default function Home({ retriveProducts }) {
@@ -47,23 +47,18 @@ export default function Home({ retriveProducts }) {
             height="150px"
             backgroundColor="blackAlpha.600"
             fontWeight="bolder"
+            padding="1"
           >
             <Text
               as="h2"
-              fontSize="2rem"
+              fontSize={{ base: "1.2rem", md: "3rem" }}
               textAlign="center"
               textTransform="uppercase"
-              letterSpacing="3px"
+              letterSpacing="1px"
             >
               Grandma welcomes you
             </Text>
-            <Text
-              as="h2"
-              textAlign="center"
-              px="1rem"
-              fontWeight="light"
-              fontSize="1.2rem"
-            >
+            <Text as="h2" textAlign="center" px="1rem" fontSize="1.2rem">
               I serve you with home grown flowers and that special cake you have
               always wanted for that special day
             </Text>

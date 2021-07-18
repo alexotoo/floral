@@ -71,17 +71,16 @@ h1 {
 }
 
 .cartModel {
-  animation: slideIn 200ms ease-out forwards;
+  animation: slideIn 400ms ease-out forwards;
 }
 
 // aminations
 @keyframes slideIn {
   0% {
-    // width: 0;
     transform: translateX(200rem);
   }
   80% {
-    width: 63%;
+    width: 65%;
   }
   100% {
     width: 60%;
