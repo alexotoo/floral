@@ -41,7 +41,7 @@ export default function Home({ retriveProducts }) {
           <Image width="100%" src="/image/madeaPhoto.jpeg" />
           <Box
             position="absolute"
-            bottom="30px"
+            bottom="0"
             color="whiteAlpha.900"
             width="80%"
             height="150px"
@@ -58,9 +58,8 @@ export default function Home({ retriveProducts }) {
               fontWeight="light"
               fontSize="1.2rem"
             >
-              At my shop you just feel like home. I serve you with home grown
-              flowers and that special cake you have always wanted for that
-              special day
+              I serve you with home grown flowers and that special cake you have
+              always wanted for that special day
             </Text>
           </Box>
         </Container>
