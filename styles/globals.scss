@@ -66,7 +66,7 @@ h1 {
 }
 
 .cartBox {
-  transform: translateY(-200rem);
+  transform: translateX(200rem);
   transition: 300ms ease;
 }
 
@@ -77,7 +77,7 @@ h1 {
 // aminations
 @keyframes slideIn {
   0% {
-    transform: translateY(-200rem);
+    transform: translateX(200rem);
     width: 0;
   }
   80% {
@@ -92,7 +92,7 @@ h1 {
   // aminations
   @keyframes slideIn {
     0% {
-      transform: translateY(-200rem);
+      transform: translateX(200rem);
       width: 0;
     }
     80% {
