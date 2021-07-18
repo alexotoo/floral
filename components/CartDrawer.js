@@ -152,6 +152,7 @@ const CartDrawer = () => {
                   borderColor="gray.300"
                   marginBottom="1rem"
                   cartitem={item}
+                  className={isCartOpen ? "cartModel" : "cartBox "}
                 >
                   {" "}
                   <HStack marginBottom="1rem" color="black">
