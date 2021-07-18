@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { createClient } from "contentful";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState, forwardRef } from "react";
 import ProductList from "../components/productList/ProductList";
 import Sections from "../components/Sections";
 import HeroSection from "../components/HeroSection";
@@ -11,9 +11,21 @@ export default function Home({ retriveProducts }) {
 
   const getProducts = useProductsStore((state) => state.getProducts);
 
+  const sectionRefFlower = useRef();
+  const sectionRefCake = useRef();
+
   useEffect(() => {
     getProducts(products);
   }, [products]);
+
+  const handleScrollCakesToView = () => {
+    sectionRefCake.current.scrollIntoView({ behavior: "smooth" });
+  };
+  const handleScrollFlowersToView = () => {
+    sectionRefFlower.current.scrollIntoView({
+      behavior: "smooth",
+    });
+  };
 
   return (
     <div>
@@ -23,14 +35,18 @@ export default function Home({ retriveProducts }) {
         {/* <link rel="icon" href="/favicon.ico" /> */}
       </Head>
       <main>
-        <HeroSection />
+        <HeroSection
+          handleScrollCakesToView={handleScrollCakesToView}
+          handleScrollFlowersToView={handleScrollFlowersToView}
+        />
 
         {products && (
           <div>
-            <Sections section="Flowers" bg="#E0E0EB">
+            <Sections section="Flowers" bg="#E0E0EB" ref={sectionRefFlower}>
               <ProductList products={products} type={"flower"} />
             </Sections>
-            <Sections section="cakes" bg="#CCD7DA">
+
+            <Sections section="cakes" bg="#CCD7DA" ref={sectionRefCake}>
               <ProductList products={products} type={"cake"} />
             </Sections>
           </div>

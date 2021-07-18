@@ -1,8 +1,9 @@
 import { Center } from "@chakra-ui/layout";
 import { Text } from "@chakra-ui/layout";
 import { Container } from "@chakra-ui/layout";
+import { forwardRef } from "react";
 
-const Sections = ({ section, children, bg }) => {
+const Sections = forwardRef(({ section, children, bg }, ref) => {
   return (
     <Container
       minW="100vw"
@@ -24,13 +25,13 @@ const Sections = ({ section, children, bg }) => {
         left="50%"
         transform="translate(-50%, -50%)"
       >
-        <Text as="h2" fontSize="2rem" letterSpacing="wider">
+        <Text as="h2" fontSize="2rem" letterSpacing="wider" ref={ref}>
           {section}
         </Text>
       </Center>
       {children}
     </Container>
   );
-};
+});
 
 export default Sections;
