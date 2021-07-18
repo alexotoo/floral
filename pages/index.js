@@ -37,7 +37,7 @@ export default function Home({ retriveProducts }) {
         {/* <link rel="icon" href="/favicon.ico" /> */}
       </Head>
       <main>
-        <Container maxW="container.lg" position="relative">
+        <Container maxW="container.lg" position="relative" mb="4rem">
           <Image width="100%" src="/image/madeaPhoto.jpeg" />
           <Box
             position="absolute"
@@ -48,7 +48,13 @@ export default function Home({ retriveProducts }) {
             backgroundColor="blackAlpha.600"
             fontWeight="bolder"
           >
-            <Text as="h2" fontSize="2rem" textAlign="center">
+            <Text
+              as="h2"
+              fontSize="2rem"
+              textAlign="center"
+              textTransform="uppercase"
+              letterSpacing="3px"
+            >
               Grandma welcomes you
             </Text>
             <Text

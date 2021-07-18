@@ -66,23 +66,35 @@ export default function productdetails() {
                 <Text>{product.fields.isInStock}</Text>
               </HStack>
               <Box w="100%" py="1rem">
-                <Button
-                  bg="orange.400"
-                  _hover={{ bg: "orange.500" }}
-                  w="50%"
-                  onClick={() =>
-                    addToCart({
-                      id,
-                      image: product.fields.image.fields.file.url,
-                      price: product.fields.price,
-                      title: product.fields.title,
-                      qty: 1,
-                    })
-                  }
-                >
-                  {" "}
-                  Add To Cart
-                </Button>
+                {product.fields.isInStock ? (
+                  <Button
+                    bg="orange.400"
+                    _hover={{ bg: "orange.500" }}
+                    w="50%"
+                    onClick={() =>
+                      addToCart({
+                        id,
+                        image: product.fields.image.fields.file.url,
+                        price: product.fields.price,
+                        title: product.fields.title,
+                        qty: 1,
+                      })
+                    }
+                  >
+                    {" "}
+                    Add To Cart
+                  </Button>
+                ) : (
+                  <Button
+                    disabled
+                    bg="orange.400"
+                    _hover={{ bg: "orange.500" }}
+                    w="50%"
+                  >
+                    {" "}
+                    Out of Stock
+                  </Button>
+                )}
               </Box>
               <Box mt="1rem" minh="50vh" fontSize="1.5rem">
                 <Text fontWeight="bold">Product Details:</Text>

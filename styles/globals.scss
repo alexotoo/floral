@@ -77,8 +77,8 @@ h1 {
 // aminations
 @keyframes slideIn {
   0% {
+    // width: 0;
     transform: translateX(200rem);
-    width: 0;
   }
   80% {
     width: 63%;

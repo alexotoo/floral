@@ -15,7 +15,7 @@ import {
 
 import { useEffect, useState } from "react";
 
-import { FaChevronUp } from "react-icons/fa";
+import { FaChevronRight, FaChevronUp } from "react-icons/fa";
 import { useCartStore } from "../store/cartStore";
 import ModelOverlay from "./ModelOverlay";
 
@@ -53,7 +53,7 @@ const CartDrawer = () => {
       >
         <HStack bg=" #001" width="100%" color="white" h="100px" px="2rem">
           <Text _hover={{ cursor: "pointer" }}>
-            <FaChevronUp onClick={cartToggleHandler} />
+            <FaChevronRight onClick={cartToggleHandler} />
           </Text>
           <Spacer />
           <Text fontSize="2rem">Cart</Text>
